@@ -8,3 +8,12 @@ $ sudo apt update
 $ sudo apt install vim
 "バージョン確認
 $ vim --version
+
+- How to change capslock to ctrl
+XKBOPTIONS="ctrl:nocaps" in /etc/default/keyboard
+sudo systemctl restart console-setup
+
+- How to install ja mozc
+$ sudo apt install ibus-mozc
+$ ibus restart
+$ gsettings set org.gnome.desktop.input-sources sources "[('xkb', 'jp'), ('ibus', 'mozc-jp')]"
