@@ -142,7 +142,7 @@ alias c='clear'
 
 # ROS
 source /opt/ros/noetic/setup.zsh
-# source /home/shin/catkin_ws/devel/setup.zsh
+source /home/$USER/catkin_ws/devel/setup.zsh
 
 # mujoco
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/$USER/.mujoco/mujoco210/bin
