@@ -21,4 +21,5 @@ $ gsettings set org.gnome.desktop.input-sources sources "[('xkb', 'jp'), ('ibus'
 - How to change the default shell
 $ which shell
 $ chsh -s %% the result of which shell %%
+$ reboot
 
