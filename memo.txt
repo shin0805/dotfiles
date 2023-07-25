@@ -26,3 +26,6 @@ $ reboot
 - How to copy dotfiles
 $ sh install.sh
 
+- How to install dropbox
+sudo apt install -y nautilus-dropbox
+
