@@ -1,4 +1,4 @@
-F"
+cat << "EOF"
  __          __  _                            _          _____   ____ _______ ______ _____ _      ______  _____ 
  \ \        / / | |                          | |        |  __ \ / __ \__   __|  ____|_   _| |    |  ____|/ ____|
   \ \  /\  / /__| | ___ ___  _ __ ___   ___  | |_ ___   | |  | | |  | | | |  | |__    | | | |    | |__  | (___  
@@ -6,7 +6,6 @@ F"
     \  /\  /  __/ | (_| (_) | | | | | |  __/ | || (_) | | |__| | |__| | | |  | |     _| |_| |____| |____ ____) |
      \/  \/ \___|_|\___\___/|_| |_| |_|\___|  \__\___/  |_____/ \____/  |_|  |_|    |_____|______|______|_____/ 
 EOF
-
 
 DOT_DIR="$HOME/dotfiles"
 # cd $DOT_DIR
@@ -29,12 +28,12 @@ EOF
 #     echo "Installed .$f"
 # done
 
-files=`find . -maxdepth 1 -type f -name ".*"`
-for f in $files;
-do
-    ln -snf $DOT_DIR/$f $HOME/$f
-    echo "Installed $f"
-done
+# files=`find . -maxdepth 1 -type f -name ".*"`
+# for f in $files;
+# do
+#     ln -snf $DOT_DIR/$f $HOME/$f
+#     echo "Installed $f"
+# done
 
 # echo "===="
 # files=`find .vim -type f` 
@@ -53,3 +52,16 @@ done
 # done
 # cd ../
 
+cat <<  "EOF"
+cp .p10k.zsh ../
+cp .tmux.conf ../
+cp .vimrc ../
+cp .zshrc ../
+cp -r .vim ../
+EOF
+
+cp .p10k.zsh ../
+cp .tmux.conf ../
+cp .vimrc ../
+cp .zshrc ../
+cp -r .vim ../
