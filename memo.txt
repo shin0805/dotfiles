@@ -11,7 +11,7 @@ $ vim --version
 
 - How to change capslock to ctrl
 XKBOPTIONS="ctrl:nocaps" in /etc/default/keyboard
-sudo systemctl restart console-setup
+$ sudo systemctl restart console-setup
 
 - How to install ja mozc
 $ sudo apt install ibus-mozc
@@ -27,5 +27,8 @@ $ reboot
 $ sh install.sh
 
 - How to install dropbox
-sudo apt install -y nautilus-dropbox
+$ sudo apt install -y nautilus-dropbox
 
+- How to install tex
+$ sudo apt-get install texlive-full
+$ sudo apt install nkf
