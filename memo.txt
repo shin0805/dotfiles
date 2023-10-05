@@ -24,7 +24,7 @@ $ chsh -s %% the result of which shell %%
 $ reboot
 
 - How to copy dotfiles
-$ sh install.sh
+$ sh cp_dotfiles.sh
 
 - How to install dropbox
 $ sudo apt install -y nautilus-dropbox
@@ -32,3 +32,6 @@ $ sudo apt install -y nautilus-dropbox
 - How to install tex
 $ sudo apt-get install texlive-full
 $ sudo apt install nkf
+
+-How to intstall openssh-server
+$ sudo apt install openssh-server

@@ -101,7 +101,7 @@ set termwinsize=10x0
 " 保存時に自動でclang-formatをしてくれる
 function! s:clang_format()
   let l:save = winsaveview()
-  :silent %! clang-format -style=file
+  :silent %! clang-format --style="{ BasedOnStyle: Google, ColumnLimit: 170 }"
   call winrestview(l:save)
   :silent w
 endfunction
