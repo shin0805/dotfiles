@@ -13,3 +13,6 @@ gsettings set org.gnome.desktop.input-sources sources "[('xkb', 'jp'), ('ibus', 
 
 # openssh-server
 sudo apt install openssh-server
+
+# ag
+sudo apt install silversearcher-ag

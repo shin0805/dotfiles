@@ -33,5 +33,8 @@ $ sudo apt install -y nautilus-dropbox
 $ sudo apt-get install texlive-full
 $ sudo apt install nkf
 
--How to intstall openssh-server
+- How to install openssh-server
 $ sudo apt install openssh-server
+
+- How to install ag
+$ sudo apt install silversearcher-ag
