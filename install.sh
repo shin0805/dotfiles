@@ -16,3 +16,6 @@ sudo apt install openssh-server
 
 # ag
 sudo apt install silversearcher-ag
+
+# xsel (for tmux)
+sudo apt install xsel
