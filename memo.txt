@@ -38,3 +38,6 @@ $ sudo apt install openssh-server
 
 - How to install ag
 $ sudo apt install silversearcher-ag
+
+- How to change the git default editor
+$ git config --global core.editor vim
