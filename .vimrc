@@ -60,17 +60,17 @@ syntax enable
 " 便利なオプション
 " let &colorcolumn=101                            " 101列目に線を入れる
 set autoindent                                  " 改行したりした時にインデントを保持してくれます。
-" set autoread                                    " 編集中に別のところで編集されたら自動で読み込みます。
+set autoread                                    " 編集中に別のところで編集されたら自動で読み込みます。
 " set backspace=indent,eol,start
-" set cursorline                                  " 今いる行をハイライト
+set cursorline                                  " 今いる行をハイライト
 set expandtab                                   " タブを押すと空白が挿入されるようにする
-" set hidden                                      " 保存しなくてもバッファの切り替えができる
+set hidden                                      " 保存しなくてもバッファの切り替えができる
 " set mouse+=a                                    " マウスでカーソルの位置を指定できる
 set noswapfile                                  " swapファイルは使いません
 set nowrap                                      " 折り返しをしない
 set number
 set relativenumber                              " 番号を相対表示にする
-" set scrolloff=8                                 " スクロール時に余白を取るようになる
+set scrolloff=8                                 " スクロール時に余白を取るようになる
 set shiftwidth=2                                " vimのインデントでいくつ空白を挿入するか
 set softtabstop=2                               " tabを押した時に空白何個分のインデントをとるか。
 " set splitbelow                                  " splitすると下に分かれる
@@ -79,6 +79,13 @@ set tabstop=2                                   " 一個のタブを空白何個
 " set tags=.tags;~                                " ctagsを遡って検索
 " set whichwrap=b,s,<,>,[,]                       " 行末、行頭で行を跨ぐことができるようになります。
 " set wildmenu wildmode=longest,full              " 補完の形を決める（vim互換性）
+set nohlsearch
+set incsearch
+set smartcase
+if has('persistent_undo')
+  set undodir=~/.vim/undo
+  set undofile
+endif
 imap jj <esc>
 nmap <C-j> <C-w>j
 tmap <C-k> <C-w>k
@@ -98,22 +105,41 @@ highlight EndOfBuffer ctermbg=none
 " terminal
 set termwinsize=10x0
 
-" 保存時に自動でclang-formatをしてくれる
+" clang-format
 function! s:clang_format()
   let l:save = winsaveview()
   :silent %! clang-format --style="{ BasedOnStyle: Google, ColumnLimit: 170 }"
   call winrestview(l:save)
   :silent w
 endfunction
-if executable("clang-format")
-    augroup cpp_clang_format
-        autocmd!
-        autocmd Bufwrite,FileWritePre,FileAppendPre *.[ch]pp call s:clang_format()
-        autocmd Bufwrite,FileWritePre,FileAppendPre *.[ch] call s:clang_format()
-    augroup END
-endif
+" yapf (pip install yapf)
+function! s:yapf()
+  let l:save = winsaveview()
+  :silent %! yapf --style="{ based_on_style: google, column_limit: 170 }"
+  call winrestview(l:save)
+  :silent w
+endfunction
+function! FileFormatter()
+  let file_type = &filetype
+  if file_type == "cpp" || file_type == "c"
+    if executable("clang-format")
+      call s:clang_format()
+    endif
+  elseif file_type == "python"
+    if executable("yapf")
+      call s:yapf()
+    endif
+  endif
+endfunction
+
+nnoremap <silent> <Space><Space> :call FileFormatter()<CR>
 
 au BufRead,BufNewFile SConstruct set filetype=python
 au BufRead,BufNewFile SConscript set filetype=python
 au BufRead,BufNewFile *.l set filetype=lisp
 au BufRead,BufNewFile *.launch set filetype=xml
+
+" ctags
+set tags=./.tags;$HOME
+nnoremap <C-]> g<C-]>
+inoremap <C-]> <ESC>g<C-]>

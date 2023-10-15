@@ -38,3 +38,6 @@ $ sudo apt install openssh-server
 
 - How to install ag
 $ sudo apt install silversearcher-ag
+
+- How to install yapf
+$ pip install yapf
