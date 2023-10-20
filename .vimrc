@@ -108,7 +108,7 @@ set termwinsize=10x0
 " clang-format
 function! s:clang_format()
   let l:save = winsaveview()
-  :silent %! clang-format --style="{ BasedOnStyle: Google, ColumnLimit: 170 }"
+  :silent %! clang-format --style="{ BasedOnStyle: Google, ColumnLimit: 170, IncludeBlocks: Preserve }"
   call winrestview(l:save)
   :silent w
 endfunction
