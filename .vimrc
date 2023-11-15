@@ -105,7 +105,7 @@ highlight EndOfBuffer ctermbg=none
 " terminal
 set termwinsize=10x0
 
-" clang-format
+" clang-format (sudo apt install clang-format)
 function! s:clang_format()
   let l:save = winsaveview()
   :silent %! clang-format --style="{ BasedOnStyle: Google, ColumnLimit: 170, IncludeBlocks: Preserve }"

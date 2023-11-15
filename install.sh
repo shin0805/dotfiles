@@ -19,3 +19,9 @@ sudo apt install silversearcher-ag
 
 # xsel (for tmux)
 sudo apt install xsel
+
+# clang-format
+sudo apt install clang-format
+
+# yapf format
+pip3 install yapf
