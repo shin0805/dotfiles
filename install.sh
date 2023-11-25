@@ -5,6 +5,7 @@ sudo add-apt-repository ppa:jonathonf/vim
 sudo apt update
 sudo apt install vim
 vim --version
+mkdir -p ~/.vim/undo
 
 # mozc
 sudo apt install ibus-mozc
@@ -25,3 +26,4 @@ sudo apt install clang-format
 
 # yapf format
 pip3 install yapf
+
