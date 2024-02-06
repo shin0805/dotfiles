@@ -193,3 +193,9 @@ setopt share_history
 
 # yapf
 export PATH="/home/leus/.local/bin:$PATH" 
+
+# Quartus
+alias quartus='~/intelFPGA_lite/18.1/quartus/bin/quartus'
+
+# source ~/.zshrc
+alias sou='source ~/.zshrc'

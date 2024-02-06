@@ -1,3 +1,10 @@
+- How to install neovim
+$ sudo snap install nvim --classic
+$ mkdir -p ~/.config/nvim/undo
+
+- How to install ccls for coc nvim
+$ sudo snap install ccls --classic
+
 - How to install vim
 $ sudo apt-get install software-properties-common
 $ sudo apt-get update

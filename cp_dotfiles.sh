@@ -55,13 +55,11 @@ EOF
 cat <<  "EOF"
 cp .p10k.zsh ../
 cp .tmux.conf ../
-cp .vimrc ../
+cp -r nvim ../.config/
 cp .zshrc ../
-cp -r .vim ../
 EOF
 
 cp .p10k.zsh ../
 cp .tmux.conf ../
-cp .vimrc ../
+cp -r nvim ../.config/
 cp .zshrc ../
-cp -r .vim ../

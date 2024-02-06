@@ -21,3 +21,7 @@ hook_add = '''
 	set bg=dark
 '''
 
+[[plugins]]
+repo = 'neoclide/coc.nvim'
+rev = 'release'
+merged = '0'
