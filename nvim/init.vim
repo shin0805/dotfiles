@@ -125,6 +125,7 @@ au BufRead,BufNewFile *.l set filetype=lisp
 au BufRead,BufNewFile *.launch set filetype=xml
 
 " ctags
+" ctags -R -f .tags (in root dir)
 set tags=./.tags;$HOME
 nnoremap <C-]> g<C-]>
 inoremap <C-]> <ESC>g<C-]>
