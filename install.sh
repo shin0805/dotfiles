@@ -1,6 +1,5 @@
 # nvim install
 sudo snap install nvim --classic
-mkdir -p ~/.config/nvim/undo
 
 # ccls (for coc nvim)
 sudo snap install ccls --classic
