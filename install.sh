@@ -4,6 +4,11 @@ sudo snap install nvim --classic
 # ccls (for coc nvim)
 sudo snap install ccls --classic
 
+# volta
+curl https://get.volta.sh | bash
+# node (for coc nvim)
+volta install node
+
 # vim install
 # sudo apt-get install software-properties-common
 # sudo apt-get update
@@ -41,3 +46,4 @@ sudo apt install silversearcher-ag
 
 # change the git default editor
 git config --global core.editor vim
+
