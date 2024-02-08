@@ -125,7 +125,15 @@ au BufRead,BufNewFile *.l set filetype=lisp
 au BufRead,BufNewFile *.launch set filetype=xml
 
 " ctags
-" ctags -R -f .tags (in root dir)
 set tags=./.tags;$HOME
 nnoremap <C-]> g<C-]>
 inoremap <C-]> <ESC>g<C-]>
+
+" source $HOME/.cache/nvim/dein/repos/github.com/neoclide/coc.nvim_release/plugin/coc.vim
+
+" telescope
+" Find files using Telescope command-line sugar.
+nnoremap ff <cmd>Telescope find_files<cr>
+nnoremap fg <cmd>Telescope live_grep<cr>
+nnoremap fb <cmd>Telescope buffers<cr>
+nnoremap fh <cmd>Telescope help_tags<cr>
