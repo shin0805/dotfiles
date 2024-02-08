@@ -36,5 +36,12 @@ catkin build --cmake-args -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
 cp build/<package-name>/compile_commands.json src/<package-name>/ 
 ```
 
+### How to start nvim LSP
+```
+:CocInstall coc-clangd
+:CocCommand clangd.install
+```
+?
+
 ### How to start Copilot
 in vim, :Copilot setup
