@@ -43,5 +43,13 @@ cp build/<package-name>/compile_commands.json src/<package-name>/
 ```
 ?
 
-### How to start Copilot
-in vim, :Copilot setup
+### How to start/stop Copilot
+in nvim
+```
+:Copilot setup
+```
+```
+:Copilot enable
+:Copilot disable
+```
+
