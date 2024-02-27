@@ -17,6 +17,7 @@ volta install node
 # sudo apt install vim
 # vim --version
 # mkdir -p ~/.vim/undo
+# sudo apt-get install vim-gtk -y
 
 # mozc
 sudo apt install ibus-mozc

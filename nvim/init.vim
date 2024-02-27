@@ -67,6 +67,7 @@ set tabstop=2                                   " 一個のタブを空白何個
 set nohlsearch
 set incsearch
 set smartcase
+set clipboard=unnamedplus
 if has('persistent_undo')
   set undodir=~/.config/nvim/undo
   set undofile
