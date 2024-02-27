@@ -45,6 +45,9 @@ sudo apt install openssh-server
 # ag
 sudo apt install silversearcher-ag
 
+# gitk
+sudo apt install gitk
+
 # change the git default editor
 git config --global core.editor vim
 
