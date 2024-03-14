@@ -51,3 +51,7 @@ sudo apt install gitk
 # change the git default editor
 git config --global core.editor vim
 
+# trash-cli
+cd tools/trash-cli
+sudo python setup.py install
+cd ../../

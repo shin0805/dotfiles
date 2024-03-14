@@ -1,0 +1,3 @@
+[submodule "tools/trash-cli"]
+	path = tools/trash-cli
+	url = https://github.com/andreafrancia/trash-cli
