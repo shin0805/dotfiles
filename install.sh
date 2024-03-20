@@ -55,3 +55,6 @@ git config --global core.editor vim
 cd tools/trash-cli
 sudo python setup.py install
 cd ../../
+
+# screen recorder length
+gsettings set org.gnome.settings-daemon.plugins.media-keys max-screencast-length 3600
