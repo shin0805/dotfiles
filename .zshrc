@@ -208,5 +208,8 @@ then
     alias rm=trash-put
 fi
 
+# roseus
+alias roseus='rlwrap roseus "$@"'
+
 # for tmux
 bindkey -e
