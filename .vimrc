@@ -1,11 +1,31 @@
+if &compatible
+  set nocompatible               " Be iMproved
+endif
+
+let $CACHE = expand('~/.cache')
+if !isdirectory($CACHE)
+  call mkdir($CACHE, 'p')
+endif
+if &runtimepath !~# '/dein.vim'
+  let s:dein_dir = fnamemodify('dein.vim', ':p')
+  if !isdirectory(s:dein_dir)
+    let s:dein_dir = $CACHE .. '/dein/repos/github.com/Shougo/dein.vim'
+    if !isdirectory(s:dein_dir)
+      execute '!git clone https://github.com/Shougo/dein.vim' s:dein_dir
+    endif
+  endif
+  execute 'set runtimepath^=' .. substitute(
+        \ fnamemodify(s:dein_dir, ':p') , '[/\\]$', '', '')
+endif
+
 " set up the dein.vim directory
-let s:dein_dir = expand('~/.cache/nvim/dein')
+let s:dein_dir = expand('~/.cache/dein')
 let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
-let g:rc_dir = expand('~/.config/nvim')
+let g:rc_dir = expand('~/.vim')
 
 " automatic installation of dein.vim
 if !isdirectory(s:dein_repo_dir)
-  execute '!git clone https://github.com/Shougo/dein.vim' s:dein_repo_dir
+  execute '!git clone <https://github.com/Shougo/dein.vim>' s:dein_repo_dir
 endif
 execute 'set runtimepath^=' . fnamemodify(s:dein_repo_dir, ':p')
 
@@ -23,12 +43,7 @@ if dein#load_state(s:dein_dir)
   call dein#save_state()
 endif
 
-" for copilot
-if has('nvim') || has('patch-9.0.0185')
-  call dein#add('github/copilot.vim')
-endif
-
-" automatically install any plugins that need to be installed.
+" automatically install any plug-ins that need to be installed.
 if dein#check_install()
   call dein#install()
 endif
@@ -67,9 +82,8 @@ set tabstop=2                                   " 一個のタブを空白何個
 set nohlsearch
 set incsearch
 set smartcase
-set clipboard=unnamedplus
 if has('persistent_undo')
-  set undodir=~/.config/nvim/undo
+  set undodir=~/.vim/undo
   set undofile
 endif
 imap jj <esc>
@@ -82,16 +96,16 @@ tmap jj <C-w>N
 colorscheme gruvbox
 
 " 背景透過
-highlight Normal ctermbg=NONE guibg=NONE
-highlight NonText ctermbg=NONE guibg=NONE
-highlight LineNr ctermbg=NONE guibg=NONE
-highlight Folded ctermbg=NONE guibg=NONE
-highlight EndOfBuffer ctermbg=NONE guibg=NONE
+highlight Normal ctermbg=none
+highlight NonText ctermbg=none
+highlight LineNr ctermbg=none
+highlight Folded ctermbg=none
+highlight EndOfBuffer ctermbg=none
  
 " terminal
-" set termwinsize=10x0
+set termwinsize=10x0
 
-" clang-format
+" clang-format (sudo apt install clang-format)
 function! s:clang_format()
   let l:save = winsaveview()
   :silent %! clang-format --style="{ BasedOnStyle: Google, ColumnLimit: 170, IncludeBlocks: Preserve }"
@@ -126,15 +140,7 @@ au BufRead,BufNewFile *.l set filetype=lisp
 au BufRead,BufNewFile *.launch set filetype=xml
 
 " ctags
+" ctags -R -f .tags (in root dir)
 set tags=./.tags;$HOME
 nnoremap <C-]> g<C-]>
 inoremap <C-]> <ESC>g<C-]>
-
-" source $HOME/.cache/nvim/dein/repos/github.com/neoclide/coc.nvim_release/plugin/coc.vim
-
-" telescope
-" Find files using Telescope command-line sugar.
-nnoremap ff <cmd>Telescope find_files<cr>
-nnoremap fg <cmd>Telescope live_grep<cr>
-nnoremap fb <cmd>Telescope buffers<cr>
-nnoremap fh <cmd>Telescope help_tags<cr>
