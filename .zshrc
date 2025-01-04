@@ -170,12 +170,14 @@ unset __conda_setup
 }
 
 # auto start tmux
-tmux_count=$(ps -ax | grep '[t]mux' | wc -l)
-if [ $SHLVL = 1 ]; then
-  if [ $tmux_count = 0 ]; then
-    tmux -u new-session
-  elif [ $tmux_count = 1 ]; then
-    tmux -u attach
+# Count running tmux sessions
+tmux_count=$(pgrep -x tmux | wc -l)
+# Automatically start or attach tmux session
+if [ "$SHLVL" -eq 1 ]; then
+  if [ "$tmux_count" -eq 0 ]; then
+    tmux new-session
+  elif [ "$tmux_count" -ge 1 ]; then
+    tmux attach || echo "Error: Failed to attach to tmux session."
   fi
 fi
 
