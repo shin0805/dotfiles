@@ -58,3 +58,6 @@ cd ../../
 
 # screen recorder length
 gsettings set org.gnome.settings-daemon.plugins.media-keys max-screencast-length 3600
+
+# direnv
+sudo apt install direnv

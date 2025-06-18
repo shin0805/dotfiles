@@ -53,3 +53,8 @@ in nvim
 :Copilot disable
 ```
 
+### How to install direnv
+```
+sudo apt install direnv
+```
+
