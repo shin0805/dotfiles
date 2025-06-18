@@ -53,6 +53,11 @@ in nvim
 :Copilot disable
 ```
 
+### How to install uv
+```
+curl -LsSf https://astral.sh/uv/install.sh | sh
+```
+
 ### How to install direnv
 ```
 sudo apt install direnv
