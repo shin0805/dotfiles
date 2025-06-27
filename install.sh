@@ -52,6 +52,7 @@ sudo apt install gitk
 git config --global core.editor vim
 
 # trash-cli
+git submodule update --init --recursive
 cd tools/trash-cli
 sudo python setup.py install
 cd ../../
