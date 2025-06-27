@@ -144,13 +144,13 @@ alias c='clear'
 
 # ROS
 source /opt/ros/noetic/setup.zsh
-source /home/$USER/catkin_ws/devel/setup.zsh
+# source /home/$USER/catkin_ws/devel/setup.zsh
 
 # mujoco
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/$USER/.mujoco/mujoco210/bin
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/lib/nvidia
-export OMP_NUM_THREADS=1
-export LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libGLEW.so
+# export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/$USER/.mujoco/mujoco210/bin
+# export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/lib/nvidia
+# export OMP_NUM_THREADS=1
+# export LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libGLEW.so
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
@@ -209,6 +209,11 @@ if type trash-put &> /dev/null
 then
     alias rm=trash-put
 fi
+
+# volta
+export VOLTA_HOME="$HOME/.volta"
+export PATH="$VOLTA_HOME/bin:$PATH"
+
 
 # roseus
 alias roseus='rlwrap roseus "$@"'
