@@ -63,3 +63,7 @@ curl -LsSf https://astral.sh/uv/install.sh | sh
 sudo apt install direnv
 ```
 
+### How to use fg in nvim
+```
+sudo apt install ripgrep
+```
