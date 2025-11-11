@@ -1,3 +1,6 @@
+# zsh install
+sudo apt install zsh
+
 # nvim install
 sudo snap install nvim --classic
 

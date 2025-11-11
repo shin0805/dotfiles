@@ -14,8 +14,8 @@ sudo systemctl restart console-setup
 
 ### How to change the default shell
 ```
-which shell
-chsh -s %% the result of which shell %%
+cat /etc/shells
+chsh -s /usr/bin/zsh
 reboot
 ```
 
