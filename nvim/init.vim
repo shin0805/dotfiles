@@ -72,10 +72,13 @@ if has('persistent_undo')
   set undodir=~/.config/nvim/undo
   set undofile
 endif
-imap jj <esc>
-nmap <C-j> <C-w>j
-tmap <C-k> <C-w>k
-tmap jj <C-w>N
+inoremap jj <esc>
+" nmap <C-j> <C-w>j
+" tmap <C-k> <C-w>k
+nnoremap <C-j> <C-\><C-n><C-w>ji
+tnoremap <C-k> <C-\><C-n><C-w>k
+tnoremap jj <C-\><C-n>
+
 " syntax enable
 
 " gruvbox
@@ -90,6 +93,7 @@ highlight EndOfBuffer ctermbg=NONE guibg=NONE
  
 " terminal
 " set termwinsize=10x0
+autocmd TermOpen * botright resize 10 | call timer_start(0, {-> execute('startinsert')})
 
 " clang-format
 function! s:clang_format()
